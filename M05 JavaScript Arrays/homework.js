@@ -157,6 +157,15 @@ function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
 
+   // let acumulador = [];
+
+   // for(let i = 0; i < array.lengt; i++){
+   //    if(array[i] > 18){
+   //    acumulador.push(array[i]) //ERROR lo correcto es acumulador++
+   //    }
+   // }
+   // return acumulador
+
    let receptor = [];
 
    for(let i = 0; i < array.length; i++){
@@ -227,6 +236,8 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
+
+
    let meses = [];
    for(let i = 0; i < array.length; i++){
       if(array[i] === 'Enero' || array[i] === 'Marzo' || array[i] === 'Noviembre'){
@@ -244,12 +255,39 @@ function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+
+   // let numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] //OPCION 1
+   // let acumulador = [];
+   // for(let i = 0; i < numeros.length; i++){
+   //    let num = numeros[i] * 6
+   //    acumulador.push(num);
+   // }
+   // return acumulador
+
+   let numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10] //OPCION2
+   let porSeis = numeros.map((numeros) => {
+      return numeros * 6;
+   })
+   return porSeis
+
+
 }
 
 function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
+
+   // let numeros = [1, 120 , 200, 32, 56, 42, 184];
+   // key            0   1     2    3   4   5   6
+
+   let acumulador = [];
+   for(let i = 0; i < array.length; i++){
+      if(array[i] > 100){
+         acumulador.push(array[i])
+      }
+   }
+   return acumulador
 }
 
 /* ----------------------------------------------------------------------------------
@@ -263,6 +301,22 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   let acumulador = [];
+   let suma = num;
+   for(let i = 0; i < 10; i++){
+      suma = suma + 2;
+      if(i === suma){
+         break;
+      }else{
+         acumulador.push(suma);
+      }
+   }
+   if(acumulador.length < 10){
+      return "Se interrumpió la ejecución";
+   }else{
+      return acumulador
+   };
+
 }
 
 function continueStatement(num) {
@@ -272,6 +326,19 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
+
+   let acumulador = [];
+   let suma = num;
+
+   for(let i = 1; i < 11; i++){
+      if(i === 5){
+         continue;
+      }else{
+         suma = suma + 2
+         acumulador.push(suma);
+      }
+   }
+   return acumulador
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
