@@ -19,12 +19,22 @@ function numberOfCharacters(string) {
    // Las letras deben estar en orden alfabético.
    // [EJEMPLO]: "adsjfdsfsfjsdjfhacabcsbajda" ---> { a: 5, b: 2, c: 2, d: 4, f: 4, h:1, j: 4, s: 5 }
    // Tu código:
-   let array = string.split('');
    let letras = {}
-   array.sort()
-   for(let i = 0; i < array.length; i++){
-      
+   let array = string.split('').sort();
+
+   // console.log(array)
+   // for(const key in array){
+   //    letras[array.key]
+   // }
+   // return letras
+      for(let i = 0; i < array.length; i++){
+         if(letras.hasOwnProperty(array[i])){
+            letras[array[i]] = letras[array[i]] + 1;
+         }else{
+            letras[array[i]] = 1
+      }
    }
+   return letras;
 }
 
 function capToFront(string) {
@@ -33,6 +43,21 @@ function capToFront(string) {
    // Retornar el string.
    // [EJEMPLO]: soyHENRY ---> HENRYsoy
    // Tu código:
+   // let nuevoString = string.split('').sort().join('');
+   let mayusculas = ''
+   let minusculas = ''
+   let stringTotal = ''
+
+   for(let i = 0; i < string.length; i++){
+      if(string[i] === string[i].toLowerCase()){
+         minusculas += string[i].toLowerCase()
+      }else if(string[i] === string[i].toUpperCase()){
+         mayusculas += string[i].toUpperCase()
+      }
+   }
+
+   return stringTotal = mayusculas + minusculas;
+
 }
 
 function asAmirror(frase) {
@@ -40,6 +65,16 @@ function asAmirror(frase) {
    // La diferencia es que cada palabra estará escrita al inverso.
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
    // Tu código:
+   
+   let fraseInvertida = ''
+   let fraseSep = frase.split(' ')
+
+   for(let i = 0; i < fraseSep.length; i++){
+      let palabras = fraseSep[i].split('').reverse().join('')
+      fraseInvertida += palabras
+   }
+   return fraseInvertida
+
 }
 
 function capicua(numero) {
