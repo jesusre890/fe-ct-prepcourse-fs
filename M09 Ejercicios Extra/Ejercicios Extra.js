@@ -66,14 +66,24 @@ function asAmirror(frase) {
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
    // Tu código:
    
-   let fraseInvertida = ''
+   // let fraseInvertida = ''
    let fraseSep = frase.split(' ')
+   
+   // for(let i = 0; i < fraseSep.length; i++){
+   //       let palabras = fraseSep[i].split('').reverse().join('')
+      
+   //       if(fraseSep.length === i + 1){
+   //       fraseInvertida += palabras 
+   //    }else{
+   //       fraseInvertida += palabras + ' '
+   //    }
+   // }
 
-   for(let i = 0; i < fraseSep.length; i++){
-      let palabras = fraseSep[i].split('').reverse().join('')
-      fraseInvertida += palabras
-   }
-   return fraseInvertida
+   let fraseInvertida = fraseSep.map((item) => {
+      return item.split('').reverse().join('')
+   })
+
+   return fraseInvertida.join(' ')
 
 }
 
@@ -81,12 +91,32 @@ function capicua(numero) {
    // Si el número que recibes es capicúa debes retornar el string: "Es capicua".
    // Caso contrario: "No es capicua".
    // Tu código:
+
+   let numeroNuevo = numero.toString().split('').reverse().join('')
+   if(numeroNuevo === numero.toString()){
+      return 'Es capicua';
+   }else{
+      return 'No es capicua'
+   }
+
 }
 
 function deleteAbc(string) {
    // Tu tarea es eliminar las letras "a", "b" y "c" del string recibido.
    // Retorna el string sin estas letras.
    // Tu código:
+
+   // let nuevoString = ''
+   let nuevoString = string.split('');
+   
+   /*for(let i = 0; i < string.length; i++){
+      if(string[i] !== 'a' && string[i] !== 'b' && string[i] !== 'c'){
+         nuevoString += string[i]
+      }
+   }*/
+   let aux = nuevoString.filter(item=> item !== 'a' && item !== 'b' && item !== 'c')
+
+   return aux.join('')
 }
 
 function sortArray(arrayOfStrings) {
@@ -95,6 +125,17 @@ function sortArray(arrayOfStrings) {
    // de la longitud de cada string.
    // [EJEMPLO]: ["You", "are", "beautiful", "looking"]  ---> [“You", "are", "looking", "beautiful"]
    // Tu código:
+
+   arrayOfStrings.sort(function compare(a, b) {
+      if (a.length < b.length ) {
+        return -1;
+      }
+      if (a.length > b.length) {
+        return 1;
+      }
+      return 0;
+    });
+    return arrayOfStrings
 }
 
 function buscoInterseccion(array1, array2) {
@@ -104,6 +145,7 @@ function buscoInterseccion(array1, array2) {
    // Si no tienen elementos en común, retornar un arreglo vacío.
    // [PISTA]: los arreglos no necesariamente tienen la misma longitud.
    // Tu código:
+   
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
